@@ -3,7 +3,6 @@ import Header from "./Header";
 import Title from "../shared/Title";
 import { Drawer, Grid, Skeleton } from "@mui/material";
 import ChatList from "../specific/ChatList";
-import { sampleChats } from "../../constants/sampleData";
 import { useNavigate, useParams } from "react-router-dom";
 import Profile from "../specific/Profile";
 import { useMyChatsQuery } from "../../redux/api/api";
@@ -20,7 +19,6 @@ import {
   ONLINE_USERS,
   REFETCH_CHATS,
 } from "../../constants/events";
-import { NEW_REQUEST } from "../../../../server/constants/events";
 import {
   incrementNotificationCount,
   setNewMessagesAlert,
@@ -85,6 +83,8 @@ const AppLayout = () => (WrappedComponent) => {
       },
       [refetch, navigate]
     );
+
+    const NEW_REQUEST = "NEW_REQUEST";
 
     const eventHandlers = {
       [NEW_MESSAGE_ALERT]: newMessageAlertHandler,
